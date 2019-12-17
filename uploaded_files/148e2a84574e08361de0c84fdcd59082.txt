@@ -1,0 +1,37 @@
+>>> from cilindre import Cilindre
+>>> c1 = Cilindre(10, 10)
+>>> c1.R
+10
+>>> c1.H
+10
+>>> print('{:.0f}'.format(c1.volum()))
+3142
+>>> c1.H = 22
+>>> c1.H
+22
+>>> print('{:.0f}'.format(c1.volum()))
+6912
+>>> c2 = Cilindre(2, 7)
+>>> c2.R
+2
+>>> c2.H
+7
+>>> print('{:.0f}'.format(c2.volum()))
+88
+>>> c3 =  Cilindre(2, 7)
+>>> c3.R = 197
+>>> c3.R
+197
+>>> print('{:.0f}'.format(c3.volum()))
+853454
+>>> c4 =  Cilindre(20, 4.5)
+>>> print('{:.0f}'.format(c4.volum()))
+5655
+>>> llista = [c1, c2, c3, c4]
+>>> from cilindre import volum_total
+>>> print('{:.0f}'.format(volum_total(llista)))
+866109
+>>> print('{:.0f}'.format(volum_total(llista[:2])))
+6999
+>>> print('{:.0f}'.format(volum_total(llista[2:])))
+859109
