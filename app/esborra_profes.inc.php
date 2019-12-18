@@ -23,10 +23,11 @@ if (isset($_REQUEST['esborra'])) {
     $total_usuaris = RepositoriProfessors :: obtenir_num_professors(Conexio::obtenir_conexio());
     $tots_profes = RepositoriProfessors::obtenir_tots($conexio);
     $y = 1;
-    foreach ($tots_profes as $professor) {
-        $professor->id = $y;
-        RepositoriProfessors::modificar_id($conexio, $professor);
+    foreach ($tots_profes as $professo) {
+        $id= $professo -> obtenir_id();
+        RepositoriProfessors::modificar_id($conexio,$y, $id);
         $y++;
+       
     }
     Conexio :: tancar_conexio();
 }

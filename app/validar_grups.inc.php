@@ -28,7 +28,7 @@ if (isset($_POST['validar'])) {
     $sql3 = 'UPDATE Professors SET estat=1 WHERE id=' . $id_seguent;
     $sentencia3 = $conexio->prepare($sql3);
     $sentencia3->execute();
-     include_once 'enviar_mail.php';
+     include_once 'app/enviar_mail.inc.php';
     } else{
         echo "<script>window.alert('Validat!')</script>";
     }
