@@ -10,8 +10,9 @@ class Conexio {
           try {  
               include_once 'config.inc.php';
 
-       
-              self::$conexio = new PDO(getenv ( string $MYSQLCONNSTR_localdb ) : string) );
+                     self::$conexio = new PDO('mysql:host=' .NOM_SERVIDOR. ';dbname='.NOM_BD,NOM_USUARI,PASSWORD,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\'') );
+
+              //self::$conexio = new PDO(getenv ( string $MYSQLCONNSTR_localdb ) : string) );
               self::$conexio -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               self::$conexio -> exec("SET CHARACTER SET utf8");
               

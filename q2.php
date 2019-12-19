@@ -50,7 +50,7 @@ include_once 'plantilles/navbar.inc_2.php';
                     }
                     ?>
 
-                    <td style="border-top: 1px solid black;width: 55px; " BGCOLOR="#c2e5d2"; font-size:12px' WIDTH="25" title="<?php echo $fila['nom'] . " " . $fila['cognoms'] ?>"><?php echo $profe ?></td>
+                    <td style="border-top: 1px solid black; font-weight:bold; width: 55px; font-size:12px " BGCOLOR="#FFFF98"  WIDTH="25" title="<?php echo $fila['nom'] . " " . $fila['cognoms'] ?>"><?php echo $profe ?></td>
 
 
 
@@ -79,7 +79,7 @@ include_once 'plantilles/navbar.inc_2.php';
                     $sentencia2->execute();
                     $resultat2 = $sentencia2->fetchAll();
                     ?>
-                    <tr> <td WIDTH="200"><?php echo $fila3['nom']." ".$fila3['tipus'] ?></td>
+                    <tr> <td BGCOLOR="#C3EEF7" WIDTH="200"><?php echo $fila3['nom']." ".$fila3['tipus'] ?></td>
                         <?php
                         foreach ($resultat2 as $fila2) {
 

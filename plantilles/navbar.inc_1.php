@@ -35,7 +35,7 @@ include_once 'app/validar_grups.inc.php';
                     </ul>
                 </li>
                 <li class="dropdown ">
-                    <a href="<?php echo Q2 ?>" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q2  </a>
+                    <a href="#" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q2  </a>
                     <ul class="dropdown-menu ">
                         <li><a href="<?php echo OCUPACIO_Q2 ?>"> Ocupació grups</a></li>
                         <li><a href="<?php echo Q2 ?>">Distribució docent</a></li>

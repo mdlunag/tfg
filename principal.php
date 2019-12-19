@@ -28,11 +28,11 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 <div class='container'>
     <h3>Ocupació grups</h3>
     
-    <p>
-    <a href="#" class="btn btn-primary" id="submitExport">
-        <i class="fa fa-download"></i> Exportar a Excel
-    </a>
+   <p>
+    <a class="btn btn-default btn-primary" href="<?php echo EXCEL ?>" download="excel_emplenat">Exportar a Excel</a>
+  
 </p>
+
 <form action="excel.php" method="post" target="_blank" id="formExport">
     <input type="hidden" id="data_to_send" name="data_to_send" />
 </form>
@@ -69,7 +69,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
                     }
                     ?>
 
-                    <td style="border-top: 1px solid black;width: 55px; " BGCOLOR="#c2e5d2"   title="<?php echo $fila['nom'] . " " . $fila['cognoms'] ?>"><?php echo $profe ?></td>
+                    <td style="border-top: 1px solid black; font-weight:bold; width: 55px; " BGCOLOR="#FFFF98"   title="<?php echo $fila['nom'] . " " . $fila['cognoms'] ?>"><?php echo $profe ?></td>
                     
                     <?php
                 }
@@ -93,7 +93,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
                     $sentencia2->execute();
                     $resultat2 = $sentencia2->fetchAll();
                     ?>
-                    <tr> <td BGCOLOR="#ffb6bb" ><?php echo $fila3['nom'] . " " . $fila3['tipus'] . " " . $fila3['quadri'] ?></td>
+                    <tr> <td BGCOLOR="#C3EEF7" ><?php echo $fila3['nom'] . " " . $fila3['tipus'] . " " . $fila3['quadri'] ?></td>
                         <?php
                         foreach ($resultat2 as $fila2) {
 

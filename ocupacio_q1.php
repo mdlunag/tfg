@@ -11,7 +11,7 @@ include_once 'plantilles/doc_declaracio.inc.php';
 include_once 'plantilles/navbar.inc_1.php';
 include_once 'app/config.inc.php';
 include_once 'app/redireccio.inc.php';
-include_once 'app/escollir_grups.inc.php';
+include_once 'app/escollir_grups_1.inc.php';
 
 ?>
 

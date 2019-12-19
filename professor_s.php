@@ -40,7 +40,6 @@ include_once 'app/canviar_estat.inc.php';
 
                 <?php
                 include_once 'app/esborra_profes.inc.php';
-                include_once 'app/boto_mail.inc.php';
                 ?>
                 <script type="text/javascript">
                     function confirmation()
@@ -48,18 +47,20 @@ include_once 'app/canviar_estat.inc.php';
                         if (confirm("Segur que vols esborrar les dades?"))
                         {
                             return true;
-                        } else
+                        }
+                        else
                         {
                             return false;
                         }
                     }
-
-                    function confirmation_enviar()
+					
+					  function confirmation_enviar()
                     {
                         if (confirm("Vols enviar un mail a aquest usuari recordant-li que pot escollir grups?"))
                         {
                             return true;
-                        } else
+                        }
+                        else
                         {
                             return false;
                         }
@@ -102,14 +103,14 @@ include_once 'app/canviar_estat.inc.php';
                     <th style="text-align: center;">Data Creació</th>
 
                     <th style="text-align: center; vertical-align: center;">Estat 
-                        <div class="popup info" >
-                            <span onclick="myFunction()" class=" glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-
-                            <span class="popuptext" id="myPopup">0: Sense permís per escollir.  No validat. <br><br>
-                                1: Amb permís per escollir.  No validat.<br><br>
-                                2: Amb permís per escollir. Validat.</span> 
-                        </div>
-                    </th>
+            <div class="popup info" >
+                <span onclick="myFunction()" class=" glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    
+                <span class="popuptext" id="myPopup">0: Sense permís per escollir.  No validat. <br><br>
+                    1: Amb permís per escollir.  No validat.<br><br>
+                2: Amb permís per escollir. Validat.</span> 
+            </div>
+            </th>
 
             <script>
                 function myFunction() {
@@ -159,11 +160,11 @@ include_once 'app/canviar_estat.inc.php';
 
                             <td><?php echo $fila['nom'] ?></td>
                             <td><?php echo $fila['cognoms'] ?></td>
-                            <td><?php echo $fila['email'] ?>
-                                <button type="submit" onclick="return confirmation_enviar()"   value="<?php echo $fila['id'];?>" class="enviar" name="envia" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true">  </span>
-                                </button>
-                            </td>
+                            <td><?php echo $fila['email']?>
+							<button type="submit" onclick="return confirmation_enviar()"   class="enviar" name="envia" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-envelope" aria-hidden="true">  </span>
+                </button>
+						</td>
                             <td style="text-align: center;"><?php echo $fila['punts'] ?></td>
                             <td style="text-align: center;"><?php echo $fila['cobert_Q1'] ?></td>
                             <td style="text-align: center;"><?php echo $fila['cobert_Q2'] ?></td>
@@ -203,13 +204,14 @@ include_once 'app/canviar_estat.inc.php';
             if ($("#chk" + value).attr("checked") == "checked") {
 
                 $("#chk" + value).removeAttr("checked");
-            } else {
+            }
+            else {
                 $("#chk" + value).attr("checked", "true");
             }
         })
     }
-
-
+	
+	
 
 </script>
 <?php
