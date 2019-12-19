@@ -207,15 +207,12 @@ class RepositoriProfessors {
             try {
                 $sql0 = 'SELECT estat FROM Professors WHERE id=' . $id;
                 $sentencia0 = $conexio->prepare($sql0);
-                $estat = intval($sentencia0->execute());
+                $estat = intval($sentencia0->execute()[0]);
 
                 if ($nou_id == 1 && $estat == 0) {
                     $estat = 1;
                 }
-
-                if ($id = 1 && $estat == 1) {
-                    $estat = 0;
-                }
+                
                 $sql = "UPDATE Professors SET estat=" . $estat . ", id=" . $nou_id . " WHERE id=" . $id;
 
                 $sentencia = $conexio->prepare($sql);

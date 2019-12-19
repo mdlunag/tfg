@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 require 'vendor/autoload.php';
 $mail = new PHPMailer;
 $mail->isSMTP();
-$mail->SMTPDebug = SMTP::DEBUG_CONNECTION;
+$mail->SMTPDebug = SMTP::DEBUG_OFF;
 $mail->Host = 'smtp.gmail.com';
 
 $mail->SMTPAuth = true;
