@@ -99,5 +99,52 @@ class RepositoriAssignatures {
 
         return $assign_afegida;
     }
+	
+	
+	  public static function modificar_assignatura($conexio, $usuari) {
+        $assign_modificat = false;
+
+        if (isset($conexio)) {
+            try {
+                $id = $usuari->obtenir_id();
+                $sql0 = "SELECT nom, tipus FROM Professors WHERE id=$id";
+                $sentencia0 = $conexio->prepare($sql0);
+                $sentencia0->execute();
+                $resultat = $sentencia0->fetch();
+				
+
+                $nom_assign_abans = $resultat['nom'];
+				$tipus_assign_abans)=$resultat['tipus'];
+				
+                 $nom = $usuari->obtenir_nom();
+                $tipus = $usuari->obtenir_tipus();
+                $credits = $usuari->obtenir_credits();
+                $punts = $usuari->obtenir_punts();
+                $grups = $usuari->obtenir_grups();
+
+                $sql = "UPDATE Assigantures SET nom='" . $nom . "', tipus='" . $tipus . "', credits='" . $credits . "', grups=" . $grups . ", punts=" . $punts . ",  WHERE id=" . $id;
+
+                $sentencia = $conexio->prepare($sql);
+
+                $assign_modificat = $sentencia->execute();
+                
+                $sql2 = "UPDATE Globals SET assignatura='" . $nom . "' WHERE assignatura='" . $nom_assign_abans . "' AND tipus='".$tipus_assign_abans."'";
+                $sentencia2 = $conexio->prepare($sql2);
+                $sentencia2->execute();
+            } catch (PDOException $ex) {
+                $avis_inici = " <br><div class='alert alert-danger' role='alert'>";
+                $avis_tancament = "</div>";
+
+                $missatge = $ex->getMessage();
+                echo $avis_inici . $missatge . $avis_tancament;
+            }
+        }
+
+
+        return $assign_modificat;
+    }
+	
+	
+	
 
 }

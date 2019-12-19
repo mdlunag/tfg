@@ -83,25 +83,25 @@ include_once 'app/canviar_estat.inc.php';
 
             <thead > 
 
-                <tr style='font-size:13.5px; ' >
+                <tr style='font-size:12.5px; ' >
                     <!-- definimos cabeceras de la tabla --> 
 
                     <th > </th>
-                    <th style="text-align: center;">Nom</th>
+                    <th style="text-align: center; padding-bottom:15px">Nom</th>
 
-                    <th style="text-align: center;">Cognoms</th>
+                    <th style="text-align: center;padding-bottom:15px">Cognoms</th>
 
-                    <th style="text-align: center;" >Email</th>
+                    <th style="text-align: center;padding-bottom:15px" >Email</th>
 
-                    <th style="text-align: center;">Punts</th>
-                    <th style="text-align: center;">Punts Q1</th>
-                    <th style="text-align: center;">Punts Q2</th>
+                    <th style="text-align: center;">Punts <br> contractats</th>
+					
+                    <th style="text-align: center;">Punts <br> pendents</th>
+                   
+                    <th style="text-align: center;padding-bottom:15px">DNI</th>
 
-                    <th style="text-align: center;">DNI</th>
+                    <th style="text-align: center;padding-bottom:15px">Data Creació</th>
 
-                    <th style="text-align: center;">Data Creació</th>
-
-                    <th style="text-align: center; vertical-align: center;">Estat 
+                    <th style="text-align: center; vertical-align: center; padding-bottom:15px">Estat 
                         <div class="popup info" >
                             <span onclick="myFunction()" class=" glyphicon glyphicon-info-sign" aria-hidden="true"></span>
 
@@ -165,8 +165,7 @@ include_once 'app/canviar_estat.inc.php';
                                 </button>
                             </td>
                             <td style="text-align: center;"><?php echo $fila['punts'] ?></td>
-                            <td style="text-align: center;"><?php echo $fila['cobert_Q1'] ?></td>
-                            <td style="text-align: center;"><?php echo $fila['cobert_Q2'] ?></td>
+                            <td style="text-align: center;"><?php echo ($fila['punts']-$fila['cobert_Q1']-$fila['cobert_Q2']) ?></td>
                             <td style="text-align: center;"><?php echo $fila['contrasenya'] ?></td>
                             <td style="text-align: center;"><?php echo $fila['data_creacio'] ?></td>
                             <td style="text-align: center;"><form method="post" class='form-selection'>

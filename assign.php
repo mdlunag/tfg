@@ -25,13 +25,10 @@ include_once 'plantilles/doc_declaracio.inc.php';
 
             <ul class='nav navbar-nav navbar-right'>
 
-                <button   formaction="nova_assign.php" type="submit" class="btn btn-default" >
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                </button>
-
-                <button type="submit" class="btn btn-default" aria-label="Left Align">
+             <button formaction="<?php echo EDITAR_ASSIGNATURES ?>" type="submit" formaction="editar_profe.php" class="btn btn-default" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
+			
                 <button type="submit"  class="btn btn-default" name="esborra" aria-label="Left Align">
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </button>
@@ -55,7 +52,7 @@ include_once 'plantilles/doc_declaracio.inc.php';
 
                         foreach ($sentencia1 as $fila) {
                             $assign = $fila['nom'];
-                            $sql2 = "DELETE FROM Global WHERE Global.Assignatura='$assign'";
+                            $sql2 = "DELETE FROM Globals WHERE Globals.Assignatura='$assign'";
                             $sentencia2 = $conexio->prepare($sql2);
                             $sentencia2->execute();
                         }

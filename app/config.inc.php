@@ -17,11 +17,13 @@ define ("ADMINISTRADOR",SERVIDOR."/admin.php" );
 define ("PUJAR_FITXER",SERVIDOR."/pujar_fitxer.php" );
 define ("NOU_PROFESSOR", SERVIDOR."/nou_professor.php");
 define ("EDITAR_PROFESSORS", SERVIDOR."/editar_professors.php");
+define ("EDITAR_ASSIGNATURES", SERVIDOR."/editar_assignatures.php");
 define ("PROFESSORS", SERVIDOR."/professors.php");
 define ("ASSIGNATURES", SERVIDOR."/assign.php");
 define ("EDITAR_ADMIN", SERVIDOR."/editar_admin.php");
 define ("LOGIN", SERVIDOR."/index.php");
 define ("LOGOUT",SERVIDOR."/logout.php" );
+
 
 
 
