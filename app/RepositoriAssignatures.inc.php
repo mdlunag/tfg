@@ -107,22 +107,22 @@ class RepositoriAssignatures {
         if (isset($conexio)) {
             try {
                 $id = $usuari->obtenir_id();
-                $sql0 = "SELECT nom, tipus FROM Professors WHERE id=$id";
+                $sql0 = "SELECT nom, tipus FROM Assignatures WHERE id=$id";
                 $sentencia0 = $conexio->prepare($sql0);
                 $sentencia0->execute();
                 $resultat = $sentencia0->fetch();
 				
 
                 $nom_assign_abans = $resultat['nom'];
-				$tipus_assign_abans)=$resultat['tipus'];
+				$tipus_assign_abans=$resultat['tipus'];
 				
                  $nom = $usuari->obtenir_nom();
                 $tipus = $usuari->obtenir_tipus();
                 $credits = $usuari->obtenir_credits();
-                $punts = $usuari->obtenir_punts();
+                $quadri = $usuari->obtenir_quadri();
                 $grups = $usuari->obtenir_grups();
 
-                $sql = "UPDATE Assigantures SET nom='" . $nom . "', tipus='" . $tipus . "', credits='" . $credits . "', grups=" . $grups . ", punts=" . $punts . ",  WHERE id=" . $id;
+                $sql = "UPDATE Assignatures SET nom='" . $nom . "', tipus='" . $tipus . "', credits=" . $credits . ", grups=" . $grups . ", quadri='" . $quadri . "'  WHERE id=" . $id;
 
                 $sentencia = $conexio->prepare($sql);
 

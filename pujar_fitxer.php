@@ -71,13 +71,13 @@ include_once 'plantilles/navbar.inc.php';
     <br>
     <div class='col-lg-4 panel'>
         <br>
-        <p> Penja fitxers amb extensió <b>.csv</b> delimitats amb coma. La primera fila <b>no</b> es tindrà en compte,
+        <p> Penja fitxers amb extensió <b>.csv</b> delimitats amb coma (es crea un Excel i al guardar es selecciona el format). <br> La primera fila <b>no</b> es tindrà en compte,
             serveix per posar els títols dels camps i evitar confusions. </p>
         <p> El fitxer amb les dades dels professors ha de constar de 5 columnes en el següent ordre:<b> Nom, Cognoms, Email,
                 Punts, DNI (serà la contrasenya).</b> L'ordre en què estiguin escrits serà l'ordre de prioritat. </p>
 
-        <p> El fitxer amb les dades de les assignatures ha de constar de 5 columnes en el següent ordre:<b> Nom, Cognoms, Email,
-                Punts, DNI (serà la contrasenya)</b> </p>
+        <p> El fitxer amb les dades de les assignatures ha de constar de 5 columnes en el següent ordre:<b> Nom, Tipus, Crèdits,
+                Grups, Quadrimestre. </b> </p>
         <br>
 
     </div>

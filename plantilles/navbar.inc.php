@@ -18,29 +18,44 @@ include_once 'app/validar_grups.inc.php';
 ?>
 
 <nav class="navbar navbar-default navbar-fixed-top "  >
-    <div class="container">
+<?php 
+if ($_SESSION['admin']==1){
+	$URL='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+	if($URL== ASSIGNATURES OR $URL == PROFESSORS OR $URL == PUJAR_FITXER OR $URL==EDITAR_ADMIN){ ;
+?>
+ <ul class="nav navbar-nav">
+<li>
+<a style='color:black; padding=0;' HREF="<?php echo ADMINISTRADOR ?>" >
+                    <span style='font-size:20px' class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
+                </a></li> </ul>
+				
+<?php } }
+?>
+    <div class="container ">
         <div class="navbar-header">
 
             <a class="navbar-brand" href="<?php echo PRINCIPAL ?>">Eina per a la gestió de l'encàrrec docent</a>
 
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+		
             <ul class="nav navbar-nav">
-                <li class='active'><a href="<?php echo PRINCIPAL ?>">General</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q1  </a>
+                <li class='<?php echo $inici?>'><a href="<?php echo INICI ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+                <li class="dropdown <?php echo $q1?>">
+                    <a href="" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q1  </a>
                     <ul class="dropdown-menu ">
                         <li ><a href="<?php echo OCUPACIO_Q1 ?>"> Ocupació grups</a></li>
                         <li>   <a  href="<?php echo Q1 ?>" > Distribució docent </a></li>
                     </ul>
                 </li>
-                <li class="dropdown ">
-                    <a href="#" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q2  </a>
+                <li class="dropdown <?php echo $q2?>">
+                    <a href="" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q2  </a>
                     <ul class="dropdown-menu ">
                         <li><a href="<?php echo OCUPACIO_Q2 ?>"> Ocupació grups</a></li>
                         <li><a href="<?php echo Q2 ?>">Distribució docent</a></li>
                     </ul>
                 </li>
+				 <li class="<?php echo $general?>"><a href="<?php echo PRINCIPAL ?>">General</a></li>
                                   <?php
                 if ($_SESSION['admin'] == "0" && $_SESSION['estat']==1) {
                     ?>
@@ -57,23 +72,27 @@ include_once 'app/validar_grups.inc.php';
                                 <?php
                 if ($_SESSION['admin'] == "0") {
                     ?>
-                    <li><a href="#">
-                            <?php echo "Punts pendents: " . $punts_pendents ?></a>
+                    <li><a href="">
+                          <strong> Punts pendents:</strong><?php echo " " . $punts_pendents ?> </a>
                     </li>
-                    <?php
-                }
-                ?>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>    <?php echo '' . $_SESSION['nom']; ?> <span class="caret"></span></a>
+                
+                <li class="dropdown ">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>    <?php echo '' . $_SESSION['nom']; ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>     Propietats</a></li>
+                        <li><a href="<?php echo DADES ?>"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>     Dades personals</a></li>
 
-                        <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li>
+         
+		 <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li>
 <?php
+				}
 if ($_SESSION['admin'] == "1") {
     ?>
-
-                            <li><a  href="<?php echo ADMINISTRADOR ?>">Opcions administrador</a></li>
+ <li class="dropdown ">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>    <?php echo '' . $_SESSION['nom']; ?> <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+        <li><a  href="<?php echo ADMINISTRADOR ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Opcions administrador</a></li>
+		 <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li>
+                            
 
 <?php }; ?>
 

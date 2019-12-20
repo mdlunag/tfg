@@ -1,10 +1,11 @@
 <?php
 include_once 'app/Conexio.inc.php';
-include_once 'app/RepositoriProfessors.inc.php';
+include_once 'app/assignatura.inc.php';
+
+include_once 'app/RepositoriAssignatures.inc.php';
 include_once 'app/professor.inc.php';
 include_once 'app/config.inc.php';
 include_once 'app/control_sessio.inc.php';
-include_once 'app/Nou_profe.inc.php';
 include_once 'app/RepositoriGlobals.inc.php';
 include_once 'plantilles/navbar.inc.php';
 include_once 'app/redireccio.inc.php';
@@ -31,20 +32,19 @@ Conexio :: tancar_conexio();
                     for ($x = 0; $x < $nombre_assigns; $x++) {
                         Conexio :: obrir_conexio();
 
-                        $validador = new ValidaCredencials($_POST['nom'.$x], $_POST['tipus'.$x], $_POST['punts'.$x], $_POST['grups'.$x], $_POST['quadri'.$x]);
-                        if ($validador->registre_valid()) {
-                            $usuari = new Professor($_POST['id'.$x], $validador->obtenir_nom(), $validador->obtenir_cognoms(), $validador->obtenir_email(), $validador->obtenir_punts(), '', '', $validador->obtenir_contra(), '', '', '');
+                        $usuari = new Assignatura($_POST['id'.$x],$_POST['nom'.$x], $_POST['tipus'.$x], $_POST['punts'.$x]/3, $_POST['grups'.$x], $_POST['quadri'.$x]);
+              
                             $usuari_modificat = RepositoriAssignatures :: modificar_assignatura(Conexio :: obtenir_conexio(), $usuari);
 
                             if ($usuari_modificat) {
                                 $modificats ++;
                             }
                         }
-                    }
+                    
                  
                     echo "<br><br><center>". $modificats . ' usuari(s) modificat(s) correctament!';
                     ?>
-                <br><br><br><button formaction="<?php echo PROFESSORS?>" class="btn btn-lg btn-primary btn-block" type="submit" >Torna</button>
+                <br><br><br><button formaction="<?php echo ASSIGNATURES?>" class="btn btn-lg btn-primary btn-block" type="submit" >Torna</button>
                 </center>
                 <?php
 

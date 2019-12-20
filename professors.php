@@ -127,7 +127,7 @@ include_once 'app/canviar_estat.inc.php';
                 <?php
                 if (isset($conexio)) {
 
-                    $sql = "SELECT * FROM Professors WHERE admin=0 ";
+                    $sql = "SELECT * FROM Professors WHERE admin=0 ORDER BY id ";
 
                     $sentencia = $conexio->prepare($sql);
                     $sentencia->execute();

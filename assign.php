@@ -25,7 +25,7 @@ include_once 'plantilles/doc_declaracio.inc.php';
 
             <ul class='nav navbar-nav navbar-right'>
 
-             <button formaction="<?php echo EDITAR_ASSIGNATURES ?>" type="submit" formaction="editar_profe.php" class="btn btn-default" aria-label="Left Align">
+             <button formaction="<?php echo EDITAR_ASSIGNATURES ?>" type="submit"  class="btn btn-default" aria-label="Left Align">
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
 			
@@ -39,7 +39,7 @@ include_once 'plantilles/doc_declaracio.inc.php';
                     for ($x = 0; $x < count($chekes); $x++) {
                         Conexio::obrir_conexio();
                         $conexio = Conexio::obtenir_conexio();
-                        $sql1 = "SELECT nom FROM Assignatures WHERE Assignatures.id=$chekes[$x]";
+                        $sql1 = "SELECT nom, tipus,quadri FROM Assignatures WHERE Assignatures.id=$chekes[$x]";
                         $sql = "DELETE FROM Assignatures WHERE Assignatures.id = $chekes[$x]  ";
                         $sentencia1 = $conexio->prepare($sql1);
                         $sentencia = $conexio->prepare($sql);
@@ -52,7 +52,9 @@ include_once 'plantilles/doc_declaracio.inc.php';
 
                         foreach ($sentencia1 as $fila) {
                             $assign = $fila['nom'];
-                            $sql2 = "DELETE FROM Globals WHERE Globals.Assignatura='$assign'";
+							$tipus= $fila['tipus'];
+							$quadri= $fila['quadri'];
+                            $sql2 = "DELETE FROM Globals WHERE assignatura='$assign' and tipus='".$tipus."' and quadri='".$quadri."'";
                             $sentencia2 = $conexio->prepare($sql2);
                             $sentencia2->execute();
                         }

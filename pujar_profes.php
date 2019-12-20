@@ -41,8 +41,15 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload') {
             foreach ($lineas as $linea_num => $linea) {
 
                 if ($i != 0) {
+					if (strpos($linea, ';') !== false){
+     $datos = explode(";", $linea);
+                 
+}else{
+      
+       $datos = explode(",", $linea);
 
-                    $datos = explode(",", $linea);
+}
+                 
 
                     $nom = $datos[0];
                     $cognoms = $datos[1];

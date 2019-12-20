@@ -8,7 +8,8 @@ $conexio = Conexio::obtenir_conexio();
 $total_professors = RepositoriProfessors:: obtenir_num_professors(Conexio::obtenir_conexio());
 Conexio :: tancar_conexio();
 include_once 'plantilles/doc_declaracio.inc.php';
-include_once 'plantilles/navbar.inc_2.php';
+$q2='active';
+include_once 'plantilles/navbar.inc.php';
 
 ?>
 

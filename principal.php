@@ -8,21 +8,12 @@ $conexio = Conexio::obtenir_conexio();
 $total_assign = RepositoriAssignatures:: obtenir_num_assigns(Conexio::obtenir_conexio());
 Conexio :: tancar_conexio();
 include_once 'plantilles/doc_declaracio.inc.php';
+$general='active';
 include_once 'plantilles/navbar.inc.php';
 if (session_id() == '') {
     session_start();
 }
-if ($_SESSION['estat']==1 && $_SESSION['admin']==0){
 ?>
-
-<div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Recorda prémer el botó validar un cop hagis escollit grups a les pestanyes Q1 i Q2. Així podrà ecollir el següent professor.</center></div>
-<?php } ?>
-<?php
-if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
-?>
-
-<div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Recorda: encara no tens permís per escollir grups. T'has d'esperar que els professors amb més prioritat escullin, rebràs un correu electrònic quan puguis.</center></div>
-<?php } ?>
 
 
 <div class='container'>

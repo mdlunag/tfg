@@ -1,16 +1,15 @@
 <?php
-include_once 'plantilles/navbar.inc.php';
 include_once 'app/Conexio.inc.php';
 $titol = 'Dades';
 Conexio::obrir_conexio();
 $conexio = Conexio::obtenir_conexio();
 Conexio :: tancar_conexio();
-include_once 'plantilles/doc_declaracio.inc.php';
-include_once 'plantilles/navbar.inc.php';
+
 if (session_id() == '') {
     session_start();
 }
 include_once 'plantilles/doc_declaracio.inc.php';
+include_once 'plantilles/navbar.inc.php';
 ?>
 
 <center>

@@ -8,6 +8,7 @@ define('NOM_BD','tfg');
 //rutes de la web
 
 define ("SERVIDOR", "http://localhost/tfg");
+define ("INICI", SERVIDOR."/inici.php");
 define ("PRINCIPAL", SERVIDOR."/principal.php");
 define ("Q1", SERVIDOR."/q1.php");
 define ("OCUPACIO_Q1", SERVIDOR."/ocupacio_q1.php");
@@ -22,6 +23,7 @@ define ("PROFESSORS", SERVIDOR."/professors.php");
 define ("ASSIGNATURES", SERVIDOR."/assign.php");
 define ("EDITAR_ADMIN", SERVIDOR."/editar_admin.php");
 define ("LOGIN", SERVIDOR."/index.php");
+define ("DADES",SERVIDOR."/dades.php" );
 define ("LOGOUT",SERVIDOR."/logout.php" );
 
 

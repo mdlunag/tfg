@@ -8,12 +8,23 @@ $conexio = Conexio::obtenir_conexio();
 $total_assign = RepositoriAssignatures:: obtenir_num_assigns(Conexio::obtenir_conexio());
 Conexio :: tancar_conexio();
 include_once 'plantilles/doc_declaracio.inc.php';
-include_once 'plantilles/navbar.inc_2.php';
+$q2='active';
+include_once 'plantilles/navbar.inc.php';
 include_once 'app/config.inc.php';
 include_once 'app/redireccio.inc.php';
 include_once 'app/escollir_grups_2.inc.php';
 
+if ($_SESSION['estat']==1 && $_SESSION['admin']==0){
 ?>
+
+<div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Recorda prémer el botó validar un cop hagis escollit grups a les pestanyes Q1 i Q2. Així podrà escollir el següent professor.</center></div>
+<?php } ?>
+<?php
+if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
+?>
+
+<div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Encara no tens permís per escollir grups. T'has d'esperar que els professors amb més prioritat escullin, rebràs un correu electrònic quan puguis.</center></div>
+<?php } ?>
 
 <div class='container'>
     <form method="post">
@@ -32,9 +43,12 @@ include_once 'app/escollir_grups_2.inc.php';
                             <th style="border-bottom: 1px solid black; border-left-color: transparent; border-right-color:transparent"></th>
 
                             <th style="border-bottom: 1px solid black; border-left-color: transparent"></th>
+							<?php if($_SESSION['admin']==0){
+									?>
 
                             <th style="text-align: center; width: 100px; border-top: 1px solid black; border-bottom:1px solid black; ">Grups coberts (usuari)</th>
-							
+							<?php }
+							?>
 							<th style="text-align: center;width: 100px;border-top: 1px solid black;border-bottom:1px solid black;"> Grups coberts (total) </th> 
 
                         </tr>
@@ -72,7 +86,11 @@ include_once 'app/escollir_grups_2.inc.php';
                                 <tr>
                                     <td BGCOLOR="#C3EEF7" ><?php echo $fila['nom'] ?></td>
                                     <td BGCOLOR="#C3EEF7" ><?php echo $fila['tipus'] ?></td>
+									<?php if($_SESSION['admin']==0){
+									?>
 								<td BGCOLOR="#ffffff" style="width: 100px;"><?php echo $resultat2[$i]['grups_propis'] ?></td>
+									<?php }
+									?>
 								<td BGCOLOR="#ffffff" style="width: 100px;"><?php echo $fila['grups_coberts'] . '/' . $fila['grups'] ?></td>
                                 </tr> 
 

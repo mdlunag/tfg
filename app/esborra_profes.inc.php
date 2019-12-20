@@ -15,7 +15,7 @@ if (isset($_REQUEST['esborra'])) {
 
         foreach ($sentencia1 as $fila) {
             $professor = $fila['nom'] . " " . $fila['cognoms'];
-            $sql2 = "DELETE FROM Globals WHERE Globals.Professor='$professor'";
+            $sql2 = "DELETE FROM Globals WHERE Globals.Professor='".$professor."'";
             $sentencia2 = $conexio->prepare($sql2);
             $sentencia2->execute();
         }

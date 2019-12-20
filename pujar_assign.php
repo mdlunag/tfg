@@ -34,7 +34,14 @@ if (isset($_POST['uploadBtn2']) && $_POST['uploadBtn2'] == 'Upload') {
 
                 if ($i != 0) {
 
-                    $datos = explode(",", $linea);
+                    if (strpos($linea, ';') !== false){
+						$datos = explode(";", $linea);
+                 
+				}else{
+      
+						$datos = explode(",", $linea);
+
+						}
 
                     $nom = $datos[0];
                     $tipus = $datos[1];

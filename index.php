@@ -7,7 +7,7 @@ include_once 'app/validador_login.inc.php';
 include_once 'app/control_sessio.inc.php';
 $titol = 'Inicia sessió';
 if (ControlSessio::sessio_iniciada()){
-    Redireccio::redirigir(PRINCIPAL);
+    Redireccio::redirigir(INICI);
 }
 if (isset($_POST['login'])) {
     Conexio::obrir_conexio();
