@@ -12,10 +12,7 @@ if (session_id() == '') {
     session_start();
 }
 
- ?>
-
-
-<?php
+ 
 if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 ?>
 
@@ -50,7 +47,8 @@ si és així, podràs escollir dins de les pestanyes 'Ocupació grups' tant del 
   <br><br><h4>Puc veure la situació actual? </h4>
   A 'Distribució docent' dins de cada quadrimestre, podràs veure què ha escollit cadascú en aquell quadrimestre (els noms dels professors estan en sigles però si passes per sobre amb el ratolí t'apareixerà el nom complet). 
   <br>A la pestanya General, trobaràs la informació tant de tots dos quadrimestres, allà et podràs baixar un <strong>excel</strong> amb totes les dades. <br>
-  
+    Per últim, a 'Ocupació Grups' dins de cada quadrimestre, podràs veure quins grups ja s'han cobert i quins no per cada assignatura.
+
 </p>
 
 <?php } if($_SESSION['admin']==1){?>
@@ -67,10 +65,11 @@ si és així, podràs escollir dins de les pestanyes 'Ocupació grups' tant del 
  <br>També pots pujar professors de manera individual a l'apartat 'Taula Professors' amb el botó <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>.
   <br><br> <h4>Puc esborrar professors i assignatures? </h4>
    Sí. Això es fa anant a l'apartat 'Taula Professors' o 'Taula Assignatures', seleccionant tots els que  vulguin esborrar i prement el botó <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>.
+   O bé esborrant tots el professors o assignatures de cop utilitzant els botons vermells a 'Opcions administrador'.
   <br><br><h4>Puc veure la situació actual? </h4>
   A 'Distribució docent' dins de cada quadrimestre, podràs veure què ha escollit cadascú en aquell quadrimestre (els noms dels professors estan en sigles però si passes per sobre amb el ratolí t'apareixerà el nom complet). 
-  <br>A la pestanya General, trobaràs la informació tant de tots dos quadrimestres, allà et podràs baixar un <strong>excel</strong> amb totes les dades i informació sobre PADs i grups totals escollits. <br>
-  
+  <br>A la pestanya General, trobaràs la informació tant de tots dos quadrimestres, allà et podràs baixar un <strong>excel</strong> amb totes les dades i informació sobre PADs i grups totals escollits. 
+  <br> A 'Ocupació Grups' dins de cada quadrimestre, podràs veure quins grups ja s'han cobert i quins no per cada assignatura.
 </p> 
 
 <?php } ?>

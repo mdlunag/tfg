@@ -11,7 +11,7 @@ Conexio :: tancar_conexio();
 include_once'plantilles/doc_declaracio.inc.php';
 include_once 'plantilles/navbar.inc.php';
 ?>
-
+<br><br>
 <div class='container'><center>
         <form  method="post">
         <br>
