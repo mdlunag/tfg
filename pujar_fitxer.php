@@ -68,17 +68,20 @@ include_once 'plantilles/navbar.inc.php';
 
         </div>
     </div>
-    <br>
+    
     <div class='col-lg-4 panel'>
         <br>
-        <p> Penja fitxers amb extensió <b>.csv</b> delimitats amb coma (es crea un Excel i al guardar es selecciona el format). <br> La primera fila <b>no</b> es tindrà en compte,
+        <p align="justify"> Penja fitxers amb extensió <b>.csv</b> (es crea un Excel i al guardar es selecciona el format, ).<br> La primera fila <b>no</b> es tindrà en compte,
             serveix per posar els títols dels camps i evitar confusions. </p>
-        <p> El fitxer amb les dades dels professors ha de constar de 5 columnes en el següent ordre:<b> Nom, Cognoms, Email,
+        <p align="justify"> El fitxer amb les dades dels professors ha de constar de 5 columnes en el següent ordre:<b> Nom, Cognoms, Email,
                 Punts, DNI (serà la contrasenya).</b> L'ordre en què estiguin escrits serà l'ordre de prioritat. </p>
 
-        <p> El fitxer amb les dades de les assignatures ha de constar de 5 columnes en el següent ordre:<b> Nom, Tipus, Crèdits,
+        <p align="justify"> El fitxer amb les dades de les assignatures ha de constar de 5 columnes en el següent ordre:<b> Nom, Tipus, Crèdits,
                 Grups, Quadrimestre. </b> </p>
         <br>
+        <p align="justify" style="font-size: 12px">Nota: és possible que a penjar professors/assignatures no es vegin bé els accents. Això és degut a un problema en la codificació del text
+        al guardar-lo en format .csv. Per tal de solucionar-ho, a la pantalla <i>Guardar como<i>, on has de seleccionar la localització i format del fitxer, prem <i>Herramientas-
+        Opciones web... - Codifiación<i> y selecciona <i> Guardar este documento como: Unicode (UTF-8) <i>.</p>
 
     </div>
     <div class='col-lg-2'></div>
