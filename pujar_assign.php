@@ -54,8 +54,8 @@ if (isset($_POST['uploadBtn2']) && $_POST['uploadBtn2'] == 'Upload') {
 
 						}
 
-                    $nom = $datos[0];
-                    $tipus = $datos[1];
+                    $nom = utf8_encode($datos[0]);
+                    $tipus = utf8_encode($datos[1]);
                     $credits = $datos[2];
                     $grups = $datos[3];
                     $quadri = rtrim($datos[4]);

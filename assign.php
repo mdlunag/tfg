@@ -64,7 +64,7 @@ include_once 'plantilles/doc_declaracio.inc.php';
                 ?>
             </ul>
             <ul class="nav navbar-nav navbar-left" >
-                <span>Nombre professors: <?php echo $total_assigns ?></span>
+                <span>Nombre assignatures:<?php echo $total_assigns ?></span>
 
             </ul>
 

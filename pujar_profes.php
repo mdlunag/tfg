@@ -57,8 +57,8 @@ if (isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload') {
                     }
 
 
-                    $nom = $datos[0];
-                    $cognoms = $datos[1];
+                    $nom = utf8_encode($datos[0]);
+                    $cognoms = utf8_encode($datos[1]);
                     $email = strval($datos[2]);
                     $punts = $datos[3];
                     $contra = rtrim($datos[4]);

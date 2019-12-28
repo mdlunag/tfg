@@ -80,8 +80,8 @@ include_once 'plantilles/navbar.inc.php';
                 Grups, Quadrimestre. </b> </p>
         <br>
         <p align="justify" style="font-size: 12px">Nota: és possible que a penjar professors/assignatures no es vegin bé els accents. Això és degut a un problema en la codificació del text
-        al guardar-lo en format .csv. Per tal de solucionar-ho, a la pantalla <i>Guardar como<i>, on has de seleccionar la localització i format del fitxer, prem <i>Herramientas-
-        Opciones web... - Codifiación<i> y selecciona <i> Guardar este documento como: Unicode (UTF-8) <i>.</p>
+        al guardar-lo en format .csv. Per tal de solucionar-ho, a la pantalla <i>Guardar como</i>, on has de seleccionar la localització i format del fitxer, prem <i>Herramientas-
+        Opciones web... - Codifiación</i> y selecciona <i> Guardar este documento como: Unicode (UTF-8) </i>.</p>
 
     </div>
     <div class='col-lg-2'></div>
