@@ -8,7 +8,7 @@ $conexio = Conexio::obtenir_conexio();
 $total_assign = RepositoriAssignatures:: obtenir_num_assigns(Conexio::obtenir_conexio());
 Conexio :: tancar_conexio();
 require 'vendor/autoload.php';
-$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('template2.xlsx');
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('template.xlsx');
 
 
 $sql = "SELECT * FROM Professors WHERE admin=0 ";

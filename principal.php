@@ -18,8 +18,8 @@ if (session_id() == '') {
 
 <div class='container'>
     <h3>Ocupació grups</h3>
-    
-   <p>
+  <p>
+   <?php include_once 'app/php_excel.php'; ?>
     <a class="btn btn-default btn-primary" href="<?php echo EXCEL ?>" download="excel_emplenat">Exportar a Excel</a>
   
 </p>
@@ -108,15 +108,7 @@ if (session_id() == '') {
     </div>
 </div>
 
-<script>
-    document.getElementById('submitExport').addEventListener('click', function(e) {
-    e.preventDefault();
-    let export_to_excel = document.getElementById('export_to_excel');
-    let data_to_send = document.getElementById('data_to_send');
-    data_to_send.value = export_to_excel.outerHTML;
-    document.getElementById('formExport').submit();
-});
-</script>
+
 
 <?php
 include_once 'plantilles/doc_tancament.inc.php'

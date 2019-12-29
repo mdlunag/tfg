@@ -51,9 +51,6 @@ include_once'plantilles/doc_declaracio.inc.php'
 
             
     </form>
-        <?php
-      include_once 'app/php_excel.php'
-        ?>
 </center></div> 
 
 
