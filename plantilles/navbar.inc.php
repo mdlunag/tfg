@@ -17,11 +17,10 @@ $punts_pendents = $resultat[0] - $resultat[1] - $resultat[2];
 include_once 'app/validar_grups.inc.php';
 ?>
 
-<nav class="navbar navbar-default navbar-fixed-top "  >
+<nav class="navbar navbar-default navbar-fixed-top " role="navigation" >
 <?php 
 if ($_SESSION['admin']==1){
-	$URL='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
-	if($URL== ASSIGNATURES OR $URL == PROFESSORS OR $URL == PUJAR_FITXER OR $URL==EDITAR_ADMIN){ ;
+    if($_SERVER['PHP_SELF']=='/assign.php' or $_SERVER['PHP_SELF']=='/professors.php' or $_SERVER['PHP_SELF']=='/pujar_fitxer.php' or $_SERVER['PHP_SELF']=='/editar_admin.php'){
 ?>
  <ul class="nav navbar-nav">
 <li>
@@ -32,24 +31,28 @@ if ($_SESSION['admin']==1){
 <?php } }
 ?>
     <div class="container ">
-        <div class="navbar-header">
+        <div class="navbar-header ">
 
-            <a class="navbar-brand" href="<?php echo PRINCIPAL ?>">Eina per a la gestió de l'encàrrec docent</a>
-
+            <a class="navbar-brand" href="" style="font-size:14px">Eina per a la gestió de l'encàrrec docent</a>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse" onclick="void(0)">
 		
             <ul class="nav navbar-nav">
                 <li class='<?php echo $inici?>'><a href="<?php echo INICI ?>"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
                 <li class="dropdown <?php echo $q1?>">
-                    <a href="" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q1  </a>
-                    <ul class="dropdown-menu ">
+                    <a class="dropdown-toggle" aria-expanded="false" data-hover="dropdown" >  Q1  </a>
+                    <ul class="dropdown-menu " role="menu">
                         <li ><a href="<?php echo OCUPACIO_Q1 ?>"> Ocupació grups</a></li>
                         <li>   <a  href="<?php echo Q1 ?>" > Distribució docent </a></li>
                     </ul>
                 </li>
                 <li class="dropdown <?php echo $q2?>">
-                    <a href="" class="dropdown-toggle"  data-hover="dropdown" aria-expanded='false'>  Q2  </a>
+                    <a class="dropdown-toggle" aria-expanded="false" data-hover="dropdown">  Q2  </a>
                     <ul class="dropdown-menu ">
                         <li><a href="<?php echo OCUPACIO_Q2 ?>"> Ocupació grups</a></li>
                         <li><a href="<?php echo Q2 ?>">Distribució docent</a></li>
@@ -62,8 +65,6 @@ if ($_SESSION['admin']==1){
                 <ul class='nav navbar-nav navbar-validar'><form class='selection' method="post"><button type='submit'name='validar' class='btn validar btn-xs btn-primary'>Validar</button></form></ul>
                 <?php } ?>
                 
-
-
             </ul>
             
 
@@ -73,7 +74,7 @@ if ($_SESSION['admin']==1){
                 if ($_SESSION['admin'] == "0") {
                     ?>
                     <li><a href="">
-                          <strong> Punts pendents:</strong><?php echo " " . $punts_pendents ?> </a>
+                            <?php echo "Punts pendents: " . $punts_pendents ?></a>
                     </li>
                 
                 <li class="dropdown ">

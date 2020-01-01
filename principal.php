@@ -1,4 +1,3 @@
-
 <?php
 include_once 'app/Conexio.inc.php';
 include_once 'app/RepositoriAssignatures.inc.php';
@@ -18,15 +17,14 @@ if (session_id() == '') {
 
 <div class='container'>
     <h3>Ocupació grups</h3>
-  <p>
+    
+   <p>
    <?php include_once 'app/php_excel.php'; ?>
     <a class="btn btn-default btn-primary" href="<?php echo EXCEL ?>" download="excel_emplenat">Exportar a Excel</a>
   
 </p>
 
-<form action="excel.php" method="post" target="_blank" id="formExport">
-    <input type="hidden" id="data_to_send" name="data_to_send" />
-</form>
+
 
 	   
 
@@ -34,7 +32,7 @@ if (session_id() == '') {
 
     <div class="table-responsive "> 
 
-        <table style="text-align:center" class="table" id="export_to_excel">
+        <table style="text-align:center" class="table" >
 
             <thead> 
 
@@ -88,7 +86,7 @@ if (session_id() == '') {
                         <?php
                         foreach ($resultat2 as $fila2) {
 
-                            if ($fila3['nom'] == $fila2['assignatura'] && $fila3['tipus'] == $fila2['tipus']) {
+                            if ($fila3['nom'] == $fila2['assignatura'] && $fila3['tipus'] == $fila2['tipus'] && $fila3['quadri']==$fila2['quadri']) {
                                 ?>  
 
                                 <td BGCOLOR="#ffffff" style='width: 50px;'><?php echo $fila2['grups'] ?></td>
@@ -107,7 +105,6 @@ if (session_id() == '') {
 
     </div>
 </div>
-
 
 
 <?php
