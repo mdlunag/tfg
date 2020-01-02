@@ -24,7 +24,10 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 ?>
 
 <div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Encara no tens permís per escollir grups. T'has d'esperar que els professors amb més prioritat escullin, rebràs un correu electrònic quan puguis.</center></div>
-<?php } ?>
+<?php } if(0>$punts_pendents){
+   ?>
+    <div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Has superat els PADs contractats.</center></div>
+    <?php }?>
 
 <div class='container'>
     <form method="post">
@@ -59,7 +62,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 
                             $sql = "SELECT ass.nom, ass.tipus, cast(cast(sum(gb.grups) as DECIMAL(3,2)) as float) as grups_coberts, ass.grups FROM Globals as gb
 
-                        INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus
+                        INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
 
                         WHERE ass.quadri = 'Q2' or ass.quadri = 'tots'
 
@@ -69,7 +72,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 						
 						
 						$sql2="SELECT cast(cast(sum(gb.grups) as DECIMAL (3,2)) as float) as grups_propis FROM Globals as gb 
-						 INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus
+						 INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
                         WHERE (gb.quadri='Q2' or gb.quadri='tots') AND gb.professor='".$_SESSION['nom']."' GROUP BY gb.assignatura, gb.tipus ORDER BY ass.id;";
 
                             $sentencia = $conexio->prepare($sql);

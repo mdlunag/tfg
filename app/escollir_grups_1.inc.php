@@ -31,14 +31,9 @@ if (isset($_POST['afegir'])) {
     $sentencia00->execute();
     $grups_coberts=$sentencia00->fetch()[0];
     
-    if($grups_coberts+$grups-$grups_abans>$grups_total||$punts_coberts>$punts_pendents){
+  
         if($grups_coberts+$grups-$grups_abans>$grups_total){
         echo "<div class='alert alert-danger alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>No pots afegir més grups dels que queden disponibles. Prova-ho de nou amb un altre nombre.</center></div>";
-        }
-        if ($punts_coberts>$punts_pendents){
-                   echo "<div class='alert alert-danger alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Siagafes aquests grups superes es PADs contractats.</center></div>";
- 
-        }
         
         } else{
             

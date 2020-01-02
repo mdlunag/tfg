@@ -32,7 +32,7 @@ foreach ($resultat as $fila) {
 
     $noms[] = [$profe];
     $nom_profe = $fila['nom'] . ' ' . $fila['cognoms'];
-    $sql2 = "SELECT  assignatura, tipus, quadri, sum(grups) as grups FROM Globals WHERE professor= '" . $nom_profe . "' GROUP BY assignatura, tipus";
+    $sql2 = "SELECT  assignatura, tipus, quadri, sum(grups) as grups FROM Globals WHERE professor= '" . $nom_profe . "' GROUP BY assignatura, tipus,quadri";
 
     $sentencia2 = $conexio->prepare($sql2);
     $sentencia2->execute();
@@ -72,7 +72,7 @@ $grups_q2 = array();
 $pads = array();
 $pads_q1 = array();
 $pads_q2 = array();
-$sql3 = "SELECT * FROM Assignatures GROUP BY nom, tipus ";
+$sql3 = "SELECT * FROM Assignatures GROUP BY nom, tipus, quadri ";
 
 $sentencia3 = $conexio->prepare($sql3);
 $sentencia3->execute();
