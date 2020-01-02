@@ -29,10 +29,22 @@ include_once 'plantilles/doc_declaracio.inc.php';
                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                 </button>
 			
-                <button type="submit"  class="btn btn-default" name="esborra" aria-label="Left Align">
+                <button type="submit"  onclick="return confirmation()" class="btn btn-default" name="esborra" aria-label="Left Align">
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                 </button>
 
+<script type="text/javascript">
+                    function confirmation()
+                    {
+                        if (confirm("Segur que vols esborrar les dades?"))
+                        {
+                            return true;
+                        } else
+                        {
+                            return false;
+                        }
+                    }
+					</script>
                 <?php
                 if (isset($_REQUEST['esborra'])) {
                     $chekes = $_REQUEST["check"];
@@ -106,7 +118,7 @@ include_once 'plantilles/doc_declaracio.inc.php';
 <?php
 if (isset($conexio)) {
 
-    $sql = "SELECT * FROM Assignatures ";
+    $sql = "SELECT id, nom, tipus, cast(cast(credits as DECIMAL(3,2)) as float) as credits, grups, quadri FROM Assignatures ";
 
     $sentencia = $conexio->prepare($sql);
     $sentencia->execute();

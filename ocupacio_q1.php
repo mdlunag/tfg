@@ -62,7 +62,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 
                             $sql = "SELECT ass.nom, ass.tipus, cast(cast(sum(gb.grups) as DECIMAL(3,2)) as float) as grups_coberts, ass.grups FROM Globals as gb
 
-                        INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and and gb.quadri=ass.quadri and gb.quadri=ass.quadri
+                        INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri and gb.quadri=ass.quadri
 
                         WHERE ass.quadri = 'Q1' or ass.quadri = 'tots'
 
@@ -72,7 +72,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 						
 						
 						$sql2="SELECT cast(cast(sum(gb.grups) as DECIMAL (3,2)) as float) as grups_propis FROM Globals as gb 
-						 INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus
+						 INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
                         WHERE (gb.quadri='Q1' or gb.quadri='tots') AND gb.professor='".$_SESSION['nom']."' GROUP BY gb.assignatura, gb.tipus ORDER BY ass.id;";
 
                             $sentencia = $conexio->prepare($sql);

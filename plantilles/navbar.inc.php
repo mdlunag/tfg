@@ -19,8 +19,12 @@ include_once 'app/validar_grups.inc.php';
 
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation" >
 <?php 
+
+$link= explode('/',$_SERVER['PHP_SELF']);
+$link="/".$link[2];
+
 if ($_SESSION['admin']==1){
-    if($_SERVER['PHP_SELF']=='/assign.php' or $_SERVER['PHP_SELF']=='/professors.php' or $_SERVER['PHP_SELF']=='/pujar_fitxer.php' or $_SERVER['PHP_SELF']=='/editar_admin.php'){
+    if($link=='/assign.php' or $link=='/professors.php' or $link=='/pujar_fitxer.php' or $link=='/editar_admin.php'){
 ?>
  <ul class="nav navbar-nav">
 <li>
