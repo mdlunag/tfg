@@ -80,19 +80,19 @@ $resultat3 = $sentencia3->fetchAll();
 
 foreach ($resultat3 as $fila3) {
     $assign[] = $fila3['nom'] . ' ' . strtoupper($fila3['tipus'][0]);
-    $grups[] = intval($fila3['grups']);
-    $pads[] = intval($fila3['credits']) * 3 * intval($fila3['grups']);
+    $grups[] = floatval($fila3['grups']);
+    $pads[] = floatval($fila3['credits']) * 3 * floatval($fila3['grups']);
     $info_assign[] = [$fila3['nom'], $fila3['tipus'], $fila3['quadri'], $fila3['credits'], $fila3['grups']];
 
     if ($fila3['quadri'] == 'Q1') {
-        $grups_q1[] = intval($fila3['grups']);
+        $grups_q1[] = floatval($fila3['grups']);
         $assign_q1[] = $fila3['nom'] . ' ' . strtoupper($fila3['tipus'][0]);
-        $pads_q1[] = intval($fila3['credits']) * 3 * intval($fila3['grups']);
+        $pads_q1[] = floatval($fila3['credits']) * 3 * floatval($fila3['grups']);
     }
     if ($fila3['quadri'] == 'Q2') {
-        $grups_q2[] = intval($fila3['grups']);
+        $grups_q2[] = floatval($fila3['grups']);
         $assign_q2[] = $fila3['nom'] . ' ' . strtoupper($fila3['tipus'][0]);
-        $pads_q2[] = intval($fila3['credits']) * 3 * intval($fila3['grups']);
+        $pads_q2[] = floatval($fila3['credits']) * 3 * floatval($fila3['grups']);
     }
 }
 
