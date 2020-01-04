@@ -31,15 +31,14 @@ Conexio :: tancar_conexio();
                     for ($x = 0; $x < $nombre_profes; $x++) {
                         Conexio :: obrir_conexio();
 
-                        $validador = new ValidaCredencials($_POST['nom'.$x], $_POST['cognoms'.$x], $_POST['email'.$x], $_POST['punts'.$x], $_POST['contra'.$x]);
-                        if ($validador->registre_valid()) {
-                            $usuari = new Professor($_POST['id'.$x], $validador->obtenir_nom(), $validador->obtenir_cognoms(), $validador->obtenir_email(), $validador->obtenir_punts(), '', '', $validador->obtenir_contra(), '', '', '');
+                        $usuari = new Professor($_POST['id'.$x],$_POST['nom'.$x], $_POST['cognoms'.$x], $_POST['email'.$x], $_POST['punts'.$x],$_POST['cobert_Q1'.$x],$_POST['cobert_Q1'.$x], $_POST['contra'.$x],$_POST['data'.$x],$_POST['estat'.$x],'');
+                        
                             $usuari_modificat = RepositoriProfessors :: modificar_professor(Conexio :: obtenir_conexio(), $usuari);
 
                             if ($usuari_modificat) {
                                 $modificats ++;
                             }
-                        }
+                        
                     }
                  
                     echo "<br><br><center>". $modificats . ' usuari(s) modificat(s) correctament!';
@@ -87,7 +86,11 @@ Conexio :: tancar_conexio();
                         <input name="<?php echo 'punts' . $x ?>" type="number" id="inputPunts" class="form-control" placeholder="Punts" value="<?php echo $resultat['punts'] ?>" required autofocus>
                         <label for="inputPassword" class="sr-only">Contrasenya</label>
                         <input  name="<?php echo 'contra' . $x ?>" id="inputPassword" class="form-control" placeholder="Contrasenya"  value="<?php echo $resultat['contrasenya'] ?>" required>
-                        <br>
+                        <input type="hidden" name="<?php echo 'estat' . $x ?>" value="<?php echo $resultat['estat'] ?>" />
+						<input type="hidden" name="<?php echo 'cobert_Q1' . $x ?>" value="<?php echo $resultat['cobert_Q1'] ?>" />
+						<input type="hidden" name="<?php echo 'cobert_Q2' . $x ?>" value="<?php echo $resultat['cobert_Q2'] ?>" />
+						<input type="hidden" name="<?php echo 'data' . $x ?>" value="<?php echo $resultat['data_creacio'] ?>" />
+						<br>
                             <?php
                     }
 

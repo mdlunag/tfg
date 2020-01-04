@@ -18,16 +18,15 @@ if ($_SESSION['estat']==1 && $_SESSION['admin']==0){
 ?>
 
 <div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Recorda prémer el botó validar un cop hagis escollit grups a les pestanyes Q1 i Q2. Així podrà escollir el següent professor.</center></div>
-<?php } ?>
-<?php
+<?php } 
 if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 ?>
 
 <div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Encara no tens permís per escollir grups. T'has d'esperar que els professors amb més prioritat escullin, rebràs un correu electrònic quan puguis.</center></div>
-<?php }if(0>$punts_pendents){
+<?php }  if(0>$punts_pendents){
    ?>
     <div class='alert alert-warning alert-dismissible erroni' role='alert'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><center>Has superat els PADs contractats.</center></div>
-    <?php } ?>
+    <?php }?>
 
 <div class='container'>
     <form method="post">
@@ -60,9 +59,9 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
                         <?php
                         if (isset($conexio)) {
 
-                            $sql = "SELECT ass.nom, ass.tipus, cast(cast(sum(gb.grups) as DECIMAL(3,2)) as float) as grups_coberts, ass.grups FROM Globals as gb
+                            $sql = "SELECT ass.nom, ass.tipus, TRIM(sum(gb.grups))+0 as grups_coberts, ass.grups FROM Globals as gb
 
-                        INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri and gb.quadri=ass.quadri
+                        INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
 
                         WHERE ass.quadri = 'Q1' or ass.quadri = 'tots'
 
@@ -71,7 +70,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
                         ORDER BY ass.id ";
 						
 						
-						$sql2="SELECT cast(cast(sum(gb.grups) as DECIMAL (3,2)) as float) as grups_propis FROM Globals as gb 
+						$sql2="SELECT TRIM(sum(gb.grups))+0 as grups_propis FROM Globals as gb 
 						 INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
                         WHERE (gb.quadri='Q1' or gb.quadri='tots') AND gb.professor='".$_SESSION['nom']."' GROUP BY gb.assignatura, gb.tipus ORDER BY ass.id;";
 
@@ -96,8 +95,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 								?>
 								<td BGCOLOR="#ffffff" style="width: 100px;"><?php echo $fila['grups_coberts'] . '/' . $fila['grups'] ?></td>
                                 </tr> 
-
-                                <?php
+<?php
 								$i++;
                             }
                         }

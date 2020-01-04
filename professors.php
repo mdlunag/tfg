@@ -86,7 +86,7 @@ include_once 'app/canviar_estat.inc.php';
                 <tr style='font-size:12.5px; ' >
                     <!-- definimos cabeceras de la tabla --> 
 
-                    <th > </th>
+                    <th style="text-align: center; padding-bottom:15px" > Prioritat </th>
                     <th style="text-align: center; padding-bottom:15px">Nom</th>
 
                     <th style="text-align: center;padding-bottom:15px">Cognoms</th>

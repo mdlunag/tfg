@@ -17,7 +17,7 @@ include_once 'plantilles/navbar.inc.php';
 
 
 <div class='container'>
-    <h2>Ocupació grups</h2>
+    <h2>Distribució docent</h2>
 
 
 

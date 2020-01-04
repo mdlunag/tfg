@@ -23,7 +23,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
 <div class='container'>
   
     
-   <h3 style="padding-top:10px;">
+   <h3 style="padding-top:0px;">
     <?php echo "Hola ".$_SESSION['nom']."!"?>
   
 </h3>

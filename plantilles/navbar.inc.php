@@ -19,12 +19,8 @@ include_once 'app/validar_grups.inc.php';
 
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation" >
 <?php 
-
-$link= explode('/',$_SERVER['PHP_SELF']);
-$link="/".$link[2];
-
 if ($_SESSION['admin']==1){
-    if($link=='/assign.php' or $link=='/professors.php' or $link=='/pujar_fitxer.php' or $link=='/editar_admin.php'){
+    if($_SERVER['PHP_SELF']=='/assign.php' or $_SERVER['PHP_SELF']=='/professors.php' or $_SERVER['PHP_SELF']=='/pujar_fitxer.php' or $_SERVER['PHP_SELF']=='/editar_admin.php' ){
 ?>
  <ul class="nav navbar-nav">
 <li>
@@ -37,7 +33,7 @@ if ($_SESSION['admin']==1){
     <div class="container ">
         <div class="navbar-header ">
 
-            <a class="navbar-brand" href="" style="font-size:14px">Eina per a la gestió de l'encàrrec docent</a>
+            <span class="navbar-brand" href="" style="font-size:14px">Eina per a la gestió de l'encàrrec docent</span>
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -87,7 +83,7 @@ if ($_SESSION['admin']==1){
                         <li><a href="<?php echo DADES ?>"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>     Dades personals</a></li>
 
          
-		 <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li>
+		 <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li></ul>
 <?php
 				}
 if ($_SESSION['admin'] == "1") {
@@ -96,17 +92,9 @@ if ($_SESSION['admin'] == "1") {
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>    <?php echo '' . $_SESSION['nom']; ?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
         <li><a  href="<?php echo ADMINISTRADOR ?>"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Opcions administrador</a></li>
-		 <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li>
-                            
-
+		 <li><a href="<?php echo LOGOUT ?>"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>     Tanca sessió</a></li> </ul>  </li>
 <?php }; ?>
-
-
-                    </ul>
-
-                </li>
-            </ul
-
+                   
 
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

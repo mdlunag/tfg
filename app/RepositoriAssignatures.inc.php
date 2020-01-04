@@ -56,12 +56,31 @@ class RepositoriAssignatures {
         }
     }
 
-    public static function afegir_assign($conexio, $assign) {
+    public static function afegir_assign($conexio, $assign, $total_assigns) {
         $assign_afegida = false;
 
         if (isset($conexio)) {
 
             try {
+				if ($total_assigns == 0) {
+                    $query = "ALTER TABLE Assignatures AUTO_INCREMENT = 1";
+                    $resp = $conexio->prepare($query);
+                    $valor_max = $resp->execute();
+                } else {
+
+                    $query = "Select Max(id) FROM Assignatures";
+                    $sentencia = $conexio->prepare($query);
+                    $sentencia->execute();
+                    $resultat = $sentencia->fetch();
+                    foreach ($resultat as $max) {
+                        $valor_max = $max;
+                    }
+
+                    $query2 = "ALTER TABLE Assignatures AUTO_INCREMENT = $valor_max";
+                    $resp2 = $conexio->prepare($query2);
+                    $resp2->execute();
+                }
+
                 $sql = "INSERT INTO Assignatures(nom, tipus, credits, grups,quadri) VALUES(:nom, :tipus,:credits,:grups,:quadri)";
                 $nomtemp = $assign->obtenir_nom();
                 $creditstemp = $assign->obtenir_credits();

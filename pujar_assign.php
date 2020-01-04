@@ -6,6 +6,10 @@ $message4 = '';
 include_once 'app/Conexio.inc.php';
 include_once 'app/RepositoriAssignatures.inc.php';
 include_once 'app/assignatura.inc.php';
+Conexio::obrir_conexio();
+$total_assigns = RepositoriAssignatures :: obtenir_num_assigns(Conexio::obtenir_conexio());
+$conexio = Conexio::obtenir_conexio();
+Conexio :: tancar_conexio();
 
 $errors = array(1, 2, 3, 4, 5, 6, 7, 8);
 $llista_errors = array(
@@ -63,7 +67,7 @@ if (isset($_POST['uploadBtn2']) && $_POST['uploadBtn2'] == 'Upload') {
                     
                     $assign = new Assignatura('',$nom, $tipus, $credits, $grups,$quadri);
 
-                    $assign_afegida = RepositoriAssignatures :: afegir_assign(Conexio :: obtenir_conexio(), $assign);
+                    $assign_afegida = RepositoriAssignatures :: afegir_assign(Conexio :: obtenir_conexio(), $assign, $total_assigns );
 
                     if ($assign_afegida) {
                        $afegides++;

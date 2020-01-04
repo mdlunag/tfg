@@ -49,7 +49,8 @@ if (isset($_POST['afegir'])) {
     $sql2 = "UPDATE Professors SET cobert_Q2= cobert_Q2+" . $punts_coberts . " WHERE id=".$id;
     $sentencia2 = $conexio->prepare($sql2);
     $sentencia2->execute();
-    Redireccio::redirigir(OCUPACIO_Q2);
+    $linki="<?php echo OCUPACIO_Q2 ?>";
+    echo("<script>location.href = $linki ;</script>");
     }
 }
 
