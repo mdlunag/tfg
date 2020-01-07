@@ -23,7 +23,7 @@ $mail->CharSet = 'UTF-8';
 
 $message  = '';
 $message .= 'Benvolgut/da professor/a,' . "<br><br>";
-$message .= 'Ja pot escollir els grups als quals vol impartir classe durant el següent curs acadèmic a través del següent link: http://google.com '
+$message .= 'Ja pot escollir els grups als quals vol impartir classe durant el següent curs acadèmic a través del següent link: http://gestio-docent.byethost7.com '
         . '(la contrasenya és el seu DNI).<br> '
         . 'Un cop hagi triat, premi el botó Validar de la part superior de la barra de navegació, '
         . " aleshores el següent professor a la llista de prioritats rebrà el mateix correu i se li habilitarà l'opció d'escollir."

@@ -52,14 +52,12 @@ Conexio :: tancar_conexio();
                         $sentencia->execute();
                         $resultat = $sentencia->fetch();
                         ?>
-                         <center>Editar admin</center> 
+                        <br>
+                         <center><strong>Editar contrasenya admin</strong></center> 
                       
-                        <label for="inputNom" class="sr-only">Nom</label>
-                        <input name='nom'  id="inputNom" class="form-control" placeholder="Nom" value="<?php echo $resultat['nom'] ?>" required autofocus>
-                        <label for="inputEmail" class="sr-only">Adreça electrònica</label>
-                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Adreça electrònica" value="<?php echo $resultat['email'] ?>" required autofocus>
+                       <br>
                         <label for="inputPassword" class="sr-only">Contrasenya</label>
-                        <input  name='contra' id="inputPassword" class="form-control" placeholder="Contrasenya"  value="<?php echo $resultat['contrasenya'] ?>" required>
+                        <input  type="password" name='contra' id="inputPassword" class="form-control" placeholder="Contrasenya"  value="<?php echo $resultat['contrasenya'] ?>" required>
                         <br>
                 <br><button class="btn btn-lg btn-primary btn-block" type="submit" name="enviar">Edita</button>
 
