@@ -18,16 +18,10 @@ if (session_id() == '') {
 <div class='container'>
     <h3>Ocupació grups</h3>
     
-   <p>
-   <?php include_once 'app/php_excel.php'; ?>
-    <a class="btn btn-default btn-primary" href="<?php echo EXCEL ?>" download="excel_emplenat">Exportar a Excel</a>
-  
-</p>
-
-
-
-	   
-
+    <br>
+   <form method="get" action="<?php echo FER_EXCEL ?>">
+   <button class="btn btn-default btn-primary" name='u' type="submit">Exportar a Excel</button>
+</form>
 
 
     <div class="table-responsive "> 

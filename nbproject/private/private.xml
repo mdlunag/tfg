@@ -5,8 +5,11 @@
         <group>
             <file>file:/C:/xampp/htdocs/tfg/plantilles/navbar.inc.php</file>
             <file>file:/C:/xampp/htdocs/tfg/app/config.inc.php</file>
+            <file>file:/C:/xampp/htdocs/tfg/app/escollir_grups_2.inc.php</file>
             <file>file:/C:/xampp/htdocs/tfg/pujar_assign.php</file>
+            <file>file:/C:/xampp/htdocs/tfg/app/escollir_grups_1.inc.php</file>
             <file>file:/C:/xampp/htdocs/tfg/assign.php</file>
+            <file>file:/C:/xampp/htdocs/tfg/ocupacio_q1.php</file>
             <file>file:/C:/xampp/htdocs/tfg/pujar_profes.php</file>
             <file>file:/C:/xampp/htdocs/tfg/pujar_fitxer.php</file>
             <file>file:/C:/xampp/htdocs/tfg/app/php_excel.php</file>
