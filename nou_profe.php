@@ -33,7 +33,11 @@ Conexio :: tancar_conexio();
                         $usuari_afegit = RepositoriProfessors :: afegir_professor(Conexio :: obtenir_conexio(), $usuari, $total_usuaris);
 
                         if ($usuari_afegit) {
-                            Redireccio::redirigir(RUTA_PROFESSORS);//redirigir
+                           ?>
+							
+                               <script> location.href= "<?php echo PROFESSORS ?>" </script>
+							
+								<?php
                         }
                     }
 

@@ -42,7 +42,7 @@ Conexio :: tancar_conexio();
                         }
                     
                  
-                    echo "<br><br><center>". $modificats . ' usuari(s) modificat(s) correctament!';
+                    echo "<br><br><center>". $modificats . ' assignatura/es modificada/es correctament!';
                     ?>
                 <br><br><br><button formaction="<?php echo ASSIGNATURES?>" class="btn btn-lg btn-primary btn-block" type="submit" >Torna</button>
                 </center>

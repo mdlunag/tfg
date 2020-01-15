@@ -22,15 +22,24 @@ include_once 'app/validar_grups.inc.php';
 $link= $_SERVER['PHP_SELF'];
 $link= '/'.explode('/',$link)[2];
 if ($_SESSION['admin']==1){
-    if($link=='/assign.php' or $link=='/professors.php' or $link=='/pujar_fitxer.php' or $link=='/editar_admin.php' ){
+    if($link=='/assign.php' or $link=='/professors.php' or $link=='/pujar_fitxer.php' or $link=='/editar_admin.php' or $link=='/nou_professor.php' or $link=='/editar_professors.php' or $link=='/editar_assignatures.php' ){
+		if($link=='/assign.php' or $link=='/professors.php' or $link=='/pujar_fitxer.php' or $link=='/editar_admin.php' ){
+		$redir=ADMINISTRADOR;}
+		if ($link=='/nou_professor.php' or $link=='/editar_professors.php'){
+			$redir=PROFESSORS;}
+		if ($link=='/editar_assignatures.php'){
+			$redir=ASSIGNATURES;}
+			
 ?>
  <ul class="nav navbar-nav">
 <li>
-<a style='color:black; padding=0;' HREF="<?php echo ADMINISTRADOR ?>" >
+<a style='color:black; padding=0;' HREF="<?php echo $redir ?>" >
                     <span style='font-size:20px' class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span>
                 </a></li> </ul>
 				
-<?php } }
+				
+	<?php
+}}
 ?>
     <div class="container ">
         <div class="navbar-header ">

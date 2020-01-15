@@ -25,7 +25,7 @@ define ("EDITAR_ADMIN", SERVIDOR."/editar_admin.php");
 define ("LOGIN", SERVIDOR."/index.php");
 define ("DADES",SERVIDOR."/dades.php" );
 define ("LOGOUT",SERVIDOR."/logout.php" );
-define ("EXCEL",SERVIDOR."/app/php_excel.php");
+define ("EXCEL",SERVIDOR."/app/excel_emplenat.xlsx");
 
 
 

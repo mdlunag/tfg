@@ -13,7 +13,6 @@
         }
         echo "<title>$titol</title>";
         ?>
-
         <title lang='ca'>$titol</title>
         <link rel="shortcut icon" type="image/x-icon" href="img/upc.ico">
         <link href="css/bootstrap.min.css" rel="stylesheet">

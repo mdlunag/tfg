@@ -29,11 +29,14 @@ Conexio :: tancar_conexio();
                     include_once 'plantilles/credencials_validat.inc.php';
 
                     if ($validador->registre_valid()) {
-                        $usuari = new Professor('', $validador->obtenir_nom(), $validador->obtenir_cognoms(), $validador->obtenir_email(), $validador->obtenir_punts(), '', '', password_hash($validador->obtenir_contra(), PASSWORD_DEFAULT), '', '','');
+                        $usuari = new Professor('', $validador->obtenir_nom(), $validador->obtenir_cognoms(), $validador->obtenir_email(), $validador->obtenir_punts(), '', '', $validador->obtenir_contra(), '', '','');
                         $usuari_afegit = RepositoriProfessors :: afegir_professor(Conexio :: obtenir_conexio(), $usuari, $total_usuaris);
 
-                        if ($usuari_afegit) {
-                            Redireccio::redirigir(RUTA_PROFESSORS);//redirigir
+                        if ($usuari_afegit) {?>
+							
+                               <script> location.href= "<?php echo PROFESSORS ?>" </script>
+							
+								<?php
                         }
                     }
 

@@ -1,14 +1,10 @@
 <?php
 
-include_once 'app/Conexio.inc.php';
-include_once 'app/RepositoriAssignatures.inc.php';
-$titol = 'Principal';
+include_once realpath(dirname(__FILE__).'/Conexio.inc.php');
 Conexio::obrir_conexio();
 $conexio = Conexio::obtenir_conexio();
-$total_assign = RepositoriAssignatures:: obtenir_num_assigns(Conexio::obtenir_conexio());
-Conexio :: tancar_conexio();
-require 'vendor/autoload.php';
-$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load('template.xlsx');
+require realpath(dirname(__FILE__).'/../vendor/autoload.php');
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(realpath(dirname(__FILE__).'/../template.xlsx'));
 
 
 $sql = "SELECT * FROM Professors WHERE admin=0 ";

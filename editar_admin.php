@@ -34,7 +34,7 @@ Conexio :: tancar_conexio();
                             $usuari_modificat = RepositoriProfessors :: modificar_professor(Conexio :: obtenir_conexio(), $usuari);
 
                             if ($usuari_modificat) {
-                                echo 'Administrador modificat correctament!';
+                                echo "<br><br><center>". 'Administrador modificat correctament!';
                             }
                         
                     
@@ -56,6 +56,10 @@ Conexio :: tancar_conexio();
                          <center><strong>Editar contrasenya admin</strong></center> 
                       
                        <br>
+					    <label  for="inputNom" class="sr-only">Nom</label>
+                        <input type="hidden" name='nom'  id="inputNom" class="form-control" placeholder="Nom" value="<?php echo $resultat['nom'] ?>" required autofocus>
+                        <label  for="inputEmail" class="sr-only">Adreça electrònica</label>
+                        <input type="hidden" name="email" id="inputEmail" class="form-control" placeholder="Adreça electrònica" value="<?php echo $resultat['email'] ?>" required autofocus>
                         <label for="inputPassword" class="sr-only">Contrasenya</label>
                         <input  type="password" name='contra' id="inputPassword" class="form-control" placeholder="Contrasenya"  value="<?php echo $resultat['contrasenya'] ?>" required>
                         <br>

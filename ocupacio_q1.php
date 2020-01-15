@@ -59,7 +59,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
                         <?php
                         if (isset($conexio)) {
 
-                            $sql = "SELECT ass.nom, ass.tipus, TRIM(sum(gb.grups))+0 as grups_coberts, ass.grups FROM Globals as gb
+                            $sql = "SELECT ass.nom, ass.tipus, cast(cast(sum(gb.grups) as DECIMAL(3,2)) as float) as grups_coberts, ass.grups FROM Globals as gb
 
                         INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
 
@@ -70,7 +70,7 @@ if ($_SESSION['estat']==0 && $_SESSION['admin']==0){
                         ORDER BY ass.id ";
 						
 						
-						$sql2="SELECT TRIM(sum(gb.grups))+0 as grups_propis FROM Globals as gb 
+						$sql2="SELECT cast(cast(sum(gb.grups) as DECIMAL (3,2)) as float) as grups_propis FROM Globals as gb 
 						 INNER JOIN Assignatures as ass on ass.nom = gb.assignatura and ass.tipus=gb.tipus and gb.quadri=ass.quadri
                         WHERE (gb.quadri='Q1' or gb.quadri='tots') AND gb.professor='".$_SESSION['nom']."' GROUP BY gb.assignatura, gb.tipus ORDER BY ass.id;";
 
@@ -149,8 +149,6 @@ if ($_SESSION['estat']!=0 && $_SESSION['admin']==0){
 				
                <div class='col-lg-1'> <button class='btn btn-primary' type='submit' name='afegir'  >Afegir</button></div>
               
-                
-
 <?php } ?>
 
             </div>
