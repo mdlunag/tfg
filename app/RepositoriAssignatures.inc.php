@@ -126,7 +126,7 @@ class RepositoriAssignatures {
         if (isset($conexio)) {
             try {
                 $id = $usuari->obtenir_id();
-                $sql0 = "SELECT nom, tipus FROM Assignatures WHERE id=$id";
+                $sql0 = "SELECT nom, tipus, quadri FROM Assignatures WHERE id=$id";
                 $sentencia0 = $conexio->prepare($sql0);
                 $sentencia0->execute();
                 $resultat = $sentencia0->fetch();
@@ -134,6 +134,9 @@ class RepositoriAssignatures {
 
                 $nom_assign_abans = $resultat['nom'];
 				$tipus_assign_abans=$resultat['tipus'];
+                                $quadri_assign_abans=$resultat['quadri'];
+                                
+                                
 				
                  $nom = $usuari->obtenir_nom();
                 $tipus = $usuari->obtenir_tipus();
@@ -147,7 +150,7 @@ class RepositoriAssignatures {
 
                 $assign_modificat = $sentencia->execute();
                 
-                $sql2 = "UPDATE Globals SET assignatura='" . $nom . "' WHERE assignatura='" . $nom_assign_abans . "' AND tipus='".$tipus_assign_abans."'";
+                $sql2 = "UPDATE Globals SET assignatura='" . $nom . "', tipus='" . $tipus . "', quadri='" . $quadri . "' WHERE assignatura='" . $nom_assign_abans . "' AND tipus='".$tipus_assign_abans."' AND quadri='".$quadri_assign_abans."'";
                 $sentencia2 = $conexio->prepare($sql2);
                 $sentencia2->execute();
             } catch (PDOException $ex) {
